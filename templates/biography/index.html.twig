@@ -1,32 +1,34 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Biographie{% endblock %}
+{% block title %}Biographie
+{% endblock %}
 
 {% block body %}
-    <div class="uk-flex uk-flex-center uk-margin-large-top">
-        <div class="uk-overflow-hidden biography-img" style="width: 20%;">
-            <img src="{{ asset('assets/images/biography.jpg') }}" alt="nico image" class="uk-animation-reverse uk-transform-origin-top-right" uk-scrollspy="cls: uk-animation-kenburns; repeat: true">
-        </div>
-    </div>
+	<div class="body-vignette">
+		<div class="uk-flex uk-flex-center uk-margin-large-top">
+			<div class="uk-overflow-hidden biography-img" style="width: 20%;">
+				<img src="{{ asset('assets/images/biography.jpg') }}" alt="nico image" class="uk-animation-reverse uk-transform-origin-top-right" uk-scrollspy="cls: uk-animation-kenburns; repeat: true">
+			</div>
+		</div>
 
-    <hr class="uk-divider-icon">
+		<hr class="uk-divider-icon">
 
-    <div class="uk-margin-large-top uk-text-center">
-    <div class="uk-card uk-card-default uk-card-body uk-animation-fade uk-width-4-5@m uk-align-center" style="animation-delay: 500ms;">
-            <p>
-                <em class="biography-txt">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam eum animi voluptatem, provident veniam eligendi perspiciatis, consectetur eveniet vero adipisci ducimus tenetur quos cumque deserunt laudantium hic! Molestiae, nihil perferendis.
-                </em>
-            </p>
-            <p>
-                <em class="biography-txt">
-                    Necessitatibus modi quibusdam ea velit rerum nihil, rem provident tempora similique architecto deleniti eaque. Maiores quidem tempora eius harum nostrum, ex animi consectetur obcaecati beatae. Et ipsam optio deleniti dolorem! Reiciendis quaerat similique animi aspernatur, placeat deserunt. Adipisci velit asperiores, delectus sapiente aliquam at id quis amet a praesentium unde perspiciatis minima reiciendis expedita veritatis! Ducimus aperiam voluptates commodi nam.
-                </em>
-            </p>
-        </div>
-    </div>
-
-    <div class="action-buttons">
+		<div class="uk-margin-large-top uk-text-center">
+			<div class="uk-card uk-card-default uk-card-body uk-animation-fade uk-width-4-5@m uk-align-center" style="animation-delay: 500ms;">
+				<p>
+					<em class="biography-txt">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam eum animi voluptatem, provident veniam eligendi perspiciatis, consectetur eveniet vero adipisci ducimus tenetur quos cumque deserunt laudantium hic! Molestiae, nihil perferendis.
+					</em>
+				</p>
+				<p>
+					<em class="biography-txt">
+						Necessitatibus modi quibusdam ea velit rerum nihil, rem provident tempora similique architecto deleniti eaque. Maiores quidem tempora eius harum nostrum, ex animi consectetur obcaecati beatae. Et ipsam optio deleniti dolorem! Reiciendis quaerat similique animi aspernatur, placeat deserunt. Adipisci velit asperiores, delectus sapiente aliquam at id quis amet a praesentium unde perspiciatis minima reiciendis expedita veritatis! Ducimus aperiam voluptates commodi nam.
+					</em>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="action-buttons">
 		<a href="{{ path('app_summary') }}" class="uk-button uk-button-default uk-border-pill uk-box-shadow-hover-small action-btn">
 			Retour au sommaire
 		</a>

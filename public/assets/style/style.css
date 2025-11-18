@@ -18,6 +18,15 @@ MEDIA QUERIES
   font-family: "Montserrat", sans-serif !important;
 }
 
+h1 {
+  color: var(--title-color) !important;
+  text-align: center;
+}
+
+p {
+  color: var(--txt-color) !important;
+}
+
 /*
 *******************************
 CONTAINERS
@@ -76,14 +85,6 @@ FORMULAIRES
   justify-content: space-evenly;
 }
 
-h1 {
-  color: var(--title-color) !important;
-}
-
-p {
-  color: var(--txt-color) !important;
-}
-
 /*
 *******************************
 ICONES
@@ -92,10 +93,6 @@ ICONES
 .material-symbols-outlined {
   font-size: 40px !important;
   font-variation-settings: "FILL" 0, "wght" 100, "GRAD" 0, "opsz" 40;
-}
-
-h1 {
-  color: var(--title-color) !important;
 }
 
 .nico-logo-container {
@@ -201,15 +198,27 @@ SUMMARY
   height: 100vh;
 }
 
-.background-summary {
-  width: 100%;
-}
-
 /*
 *******************************
 BIOGRAPHY
 *******************************
 */
+.body-vignette {
+  position: relative;
+}
+
+.body-vignette::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* ne bloque pas les clics */
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.15) 100%);
+  z-index: 1;
+}
+
 .biography-img {
   width: 100%;
   height: auto;
