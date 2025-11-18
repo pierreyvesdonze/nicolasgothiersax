@@ -16,14 +16,15 @@ class LinkType extends AbstractType
         $builder
             ->add('type', ChoiceType::class, [
                 'choices' => [
-                    'Site'       => 'site',
-                    'Youtube'    => 'youtube',
-                    'Instagram'  => 'instagram',
-                    'Facebook'   => 'facebook',
-                    'Tiktok'     => 'tiktok',
-                    'Linkedin'   => 'linkedin',
-                    'Linkaband'  => 'linkaband',
-                    'Soundcloud' => 'soundcloud',
+                    'Site'        => 'site',
+                    'Youtube'     => 'youtube',
+                    'Instagram'   => 'instagram',
+                    'Facebook'    => 'facebook',
+                    'Tiktok'      => 'tiktok',
+                    'Linkedin'    => 'linkedin',
+                    'Linkaband'   => 'linkaband',
+                    'Soundcloud'  => 'soundcloud',
+                    'Mariage.net' => 'mariage',
                 ],
                 'required'    => true,
                 'placeholder' => 'Sélectionnez un type',

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Distinctions
+{% endblock %}
+
+{% block body %}
+	<div class="uk-container uk-margin-large-top">
+
+		<h1 class="uk-text-center">Distinctions</h1>
+		<hr class="uk-divider-icon">
+
+		{% if is_granted('ROLE_ADMIN') %}
+			<div class="uk-flex uk-flex-center uk-margin-medium-bottom">
+				<a href="{{ path('app_degree_new') }}" class="uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">
+					Ajouter
+				</a>
+			</div>
+		{% endif %}
+
+		<div class="degree-container uk-flex uk-flex-center">
+			<ul class="uk-list uk-list-divider uk-width-1-2@m uk-text-center">
+				{% for degree in degrees %}
+					<li>
+						<strong>{{ degree.title }}</strong><br>
+						<span>{{ degree.date ? degree.date|date('Y') : '' }}</span><br>
+						<em>{{ degree.place }}</em>
+						{% if is_granted('ROLE_ADMIN') %}
+                        <br>
+							<a href="{{ path('app_degree_edit', {'id': degree.id}) }}" class="uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">Modifier</a>
+						{% endif %}
+					</li>
+				{% else %}
+					<li>Aucune distinction pour le moment.</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+	</div>
+{% endblock %}

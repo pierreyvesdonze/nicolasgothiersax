@@ -1,0 +1,33 @@
+<div class="uk-container uk-margin-large-top">
+    <div class="uk-flex uk-flex-center">
+        <div class="uk-width-1-2@m uk-width-2-3@s">
+
+            <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-medium">
+
+                {{ form_start(form, {'attr': {'class': 'uk-form-stacked'}}) }}
+
+                {% for field in form %}
+                    {% if field.vars.name != '_token' %}
+                        <div class="uk-margin">
+                            {{ form_label(field, null, {'label_attr': {'class': 'uk-form-label'}}) }}
+                            <div class="uk-form-controls">
+                                {{ form_widget(field, {'attr': {'class': 'uk-input'}}) }}
+                                {{ form_errors(field) }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+                <div class="uk-text-center uk-margin-top">
+                    <button type="submit" class="uk-button uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">
+                        {{ button_label|default('Enregistrer') }}
+                    </button>
+                </div>
+
+                {{ form_end(form) }}
+
+            </div>
+
+        </div>
+    </div>
+</div>

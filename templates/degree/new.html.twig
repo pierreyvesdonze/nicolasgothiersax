@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une distinction
+{% endblock %}
+
+{% block body %}
+	<h1>Ajouter une distinction</h1>
+
+	{{ include('degree/_form.html.twig') }}
+
+	<div class="action-buttons">
+		<a href="{{ path('app_degree_index') }}" class="uk-button uk-button-default uk-border-pill uk-box-shadow-hover-small action-btn">
+			Retour à la liste
+		</a>
+	</div>
+{% endblock %}
