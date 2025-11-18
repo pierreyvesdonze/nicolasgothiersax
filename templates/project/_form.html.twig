@@ -1,81 +1,80 @@
 <div class="uk-container uk-margin-large-top">
-    <div class="uk-flex uk-flex-center">
-        <div class="uk-width-1-2@m uk-width-2-3@s">
+	<div class="uk-flex uk-flex-center">
+		<div class="uk-width-1-2@m uk-width-2-3@s">
 
-            <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-medium">
+			<div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-medium">
 
-                {{ form_start(form, {'attr': {'enctype': 'multipart/form-data', 'class': 'uk-form-stacked'}}) }}
+				{{ form_start(form, {'attr': {'enctype': 'multipart/form-data', 'class': 'uk-form-stacked'}}) }}
 
-                <h2 class="uk-text-center">Éditer un élément</h2>
+				<h2 class="uk-text-center">Éditer un élément</h2>
 
-                <div class="uk-margin">
-                    {{ form_label(form.title, null, {'label_attr': {'class': 'uk-form-label'}}) }}
-                    <div class="uk-form-controls">
-                        {{ form_widget(form.title, {'attr': {'class': 'uk-input'}}) }}
-                        {{ form_errors(form.title) }}
-                    </div>
-                </div>
+				<div class="uk-margin">
+					{{ form_label(form.title, null, {'label_attr': {'class': 'uk-form-label'}}) }}
+					<div class="uk-form-controls">
+						{{ form_widget(form.title, {'attr': {'class': 'uk-input'}}) }}
+						{{ form_errors(form.title) }}
+					</div>
+				</div>
 
-                <div class="uk-margin">
-                    {{ form_label(form.description, null, {'label_attr': {'class': 'uk-form-label'}}) }}
-                    <div class="uk-form-controls">
-                        {{ form_widget(form.description, {'attr': {'class': 'uk-textarea'}}) }}
-                        {{ form_errors(form.description) }}
-                    </div>
-                </div>
+				{# --- Champ contenu avec Quill --- #}
+				<div class="uk-margin">
+					{{ form_label(form.description, null, {
+                'label_attr': {'class': 'uk-form-label uk-text-bold uk-text-large'}}) }}
+					<div class="uk-form-controls">
+						<div id="editor" class="uk-border-rounded uk-box-shadow-small uk-padding-small" style="min-height: 250px; background: #fff;"></div>
+						{{ form_widget(form.description) }}
+						{{ form_errors(form.description) }}
+					</div>
+				</div>
 
-                <div class="uk-margin">
-                    {{ form_label(form.image, null, {'label_attr': {'class': 'uk-form-label'}}) }}
-                    <div class="uk-form-controls">
-                        {{ form_widget(form.image, {'attr': {'class': 'uk-input'}}) }}
-                        {{ form_errors(form.image) }}
-                    </div>
-                </div>
+				<div class="uk-margin">
+					{{ form_label(form.image, null, {'label_attr': {'class': 'uk-form-label'}}) }}
+					<div class="uk-form-controls">
+						{{ form_widget(form.image, {'attr': {'class': 'uk-input'}}) }}
+						{{ form_errors(form.image) }}
+					</div>
+				</div>
 
-                <h3 class="uk-heading-bullet uk-margin-top">Liens</h3>
+				<h3 class="uk-heading-bullet uk-margin-top">Liens</h3>
 
-                <ul id="links-list"
-                    class="uk-list uk-list-striped"
-                    data-index="{{ form.links|length > 0 ? form.links|last.vars.name + 1 : 0 }}"
-                    data-prototype="{{ form_widget(form.links.vars.prototype)|e('html_attr') }}"
-                >
-                    {% for linkForm in form.links %}
-                        <li class="uk-margin-small">
-                            <div class="uk-margin">
-                                {{ form_label(linkForm.type, null, {'label_attr': {'class': 'uk-form-label'}}) }}
-                                <div class="uk-form-controls">
-                                    {{ form_widget(linkForm.type, {'attr': {'class': 'uk-select'}}) }}
-                                </div>
-                            </div>
+				<ul id="links-list" class="uk-list uk-list-striped" data-index="{{ form.links|length > 0 ? form.links|last.vars.name + 1 : 0 }}" data-prototype="{{ form_widget(form.links.vars.prototype)|e('html_attr') }}">
+					{% for linkForm in form.links %}
+						<li class="uk-margin-small">
+							<div class="uk-margin">
+								{{ form_label(linkForm.type, null, {'label_attr': {'class': 'uk-form-label'}}) }}
+								<div class="uk-form-controls">
+									{{ form_widget(linkForm.type, {'attr': {'class': 'uk-select'}}) }}
+								</div>
+							</div>
 
-                            <div class="uk-margin">
-                                {{ form_label(linkForm.path, null, {'label_attr': {'class': 'uk-form-label'}}) }}
-                                <div class="uk-form-controls">
-                                    {{ form_widget(linkForm.path, {'attr': {'class': 'uk-input'}}) }}
-                                </div>
-                            </div>
+							<div class="uk-margin">
+								{{ form_label(linkForm.path, null, {'label_attr': {'class': 'uk-form-label'}}) }}
+								<div class="uk-form-controls">
+									{{ form_widget(linkForm.path, {'attr': {'class': 'uk-input'}}) }}
+								</div>
+							</div>
 
-                            <button type="button" class="remove-link uk-button uk-button-danger uk-button-small uk-border-pill uk-box-shadow-hover-small">
-                                Supprimer
-                            </button>
-                        </li>
-                    {% endfor %}
-                </ul>
+							<button type="button" class="remove-link uk-button uk-button-danger uk-button-small uk-border-pill uk-box-shadow-hover-small">
+								Supprimer
+							</button>
+						</li>
+					{% endfor %}
+				</ul>
 
-                <button type="button" id="add-link" class="uk-button uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">
-                    Ajouter un lien
-                </button>
+				<button type="button" id="add-link" class="uk-button uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">
+					Ajouter un lien
+				</button>
 
 				<br>
 				<br>
 
-                <button type="submit" class="uk-button uk-button-default uk-button-small uk-border-pill uk-box-shadow-hover-small">
-                    Enregistrer
-                </button>
+				<button type="submit" class="uk-button uk-button-default uk-button-small uk-border-pill uk-box-shadow-hover-small">
+					Enregistrer
+				</button>
 
-                {{ form_end(form) }}
+				{{ form_end(form) }}
 
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </div>

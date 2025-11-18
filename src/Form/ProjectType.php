@@ -23,14 +23,15 @@ class ProjectType extends AbstractType
                 ],
             ])
             ->add('description', TextareaType::class, [
-                'required' => true,
+                'label' => 'Description',
+                'required' => false,
                 'attr' => [
-                    'placeholder' => 'Description',
-                    'rows' => 5,
+                    'class' => 'quill-editor', // utile pour le JS
+                    'style' => 'display:none;' // on cache le textarea natif
                 ],
             ])
             ->add('image', FileType::class, [
-                'required' => true,
+                'required' => false,
                 'mapped' => false,
                 'attr' => [
                     'placeholder' => 'Choisir une image',
@@ -40,7 +41,8 @@ class ProjectType extends AbstractType
                 'entry_type' => LinkType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'by_reference' => false, // important pour que Doctrine persiste les liens
+                'by_reference' => false,
+                'label' => false,
             ])
         ;
     }

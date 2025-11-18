@@ -185,6 +185,29 @@ NAV
 }
 
 /*
+*******************************
+PROJECT
+*******************************
+*/
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px; /* espace horizontal et vertical */
+    justify-content: center; /* centre le grid */
+}
+.project-img-wrapper {
+    width: 100%;
+    max-height: 180px;
+    overflow: hidden;
+}
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ne dépasse jamais */
+    display: block;
+}
+
+/*
  ***************************
 FOOTER
  ***************************

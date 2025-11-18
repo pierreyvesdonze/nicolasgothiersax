@@ -1,39 +1,60 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Project index{% endblock %}
+{% block title %}Projets
+{% endblock %}
 
 {% block body %}
-    <h1>Project index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for project in projects %}
-            <tr>
-                <td>{{ project.id }}</td>
-                <td>{{ project.title }}</td>
-                <td>{{ project.description }}</td>
-                <td>{{ project.image }}</td>
-                <td>
-                    <a href="{{ path('app_project_show', {'id': project.id}) }}">show</a>
-                    <a href="{{ path('app_project_edit', {'id': project.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<div class="uk-container uk-margin-large-top">
+    <div class="uk-flex uk-flex-center">
+        <div class="uk-width-4-5@l uk-width-3-4@m uk-width-1-1@s">
 
-    <a href="{{ path('app_project_new') }}">Create new</a>
+            {# Grid natif #}
+            <div class="projects-grid">
+
+                {% for project in projects %}
+                    <div class="uk-card uk-card-default uk-overflow-hidden uk-border-rounded uk-box-shadow-small">
+                        
+                        {# Image #}
+                        <div class="project-img-wrapper">
+                            {% if project.image %}
+                                <img src="{{ asset('assets/images/uploads/' ~ project.image) }}" alt="{{ project.title }}" class="project-img" loading="lazy">
+                            {% else %}
+                                <div class="uk-placeholder uk-text-center" style="height:180px; display:flex; align-items:center; justify-content:center;">
+                                    <span>Aucune image</span>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="uk-card-body uk-text-center">
+                            <h4 class="uk-margin-small-top">{{ project.title }}</h4>
+                            <p class="uk-text-muted">{{ project.description|raw }}</p>
+
+                            {% if project.links is not empty %}
+                                <ul class="uk-list uk-list-small uk-text-left">
+                                    {% for link in project.links %}
+                                        <li class="uk-flex uk-flex-middle">
+                                            <img src="{{ asset('assets/images/logo/' ~ link.type ~ '.png') }}" alt="{{ link.type }}" width="24" height="24" style="margin-right: 8px; }}'">
+                                            <a href="{{ link.path }}" target="_blank" rel="noopener noreferrer">
+                                                {{ link.type|capitalize }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <hr class="uk-divider-icon">
+                                <a href="{{ path('app_project_edit', {'id': project.id}) }}" class="uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">Modifier</a>
+                                <a href="{{ path('app_project_new') }}" class="uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">Ajouter</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

@@ -22,7 +22,7 @@ class LinkType extends AbstractType
                     'Facebook'   => 'facebook',
                     'Tiktok'     => 'tiktok',
                     'Linkedin'   => 'linkedin',
-                    'Linkeband'  => 'linkeband',
+                    'Linkaband'  => 'linkaband',
                     'Soundcloud' => 'soundcloud',
                 ],
                 'required'    => true,
