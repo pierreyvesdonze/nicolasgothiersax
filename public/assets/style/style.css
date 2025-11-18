@@ -11,7 +11,7 @@ MEDIA QUERIES
   --flash-alert-error: rgb(150, 47, 47);
   --title-color: #898989;
   --txt-color: #b5b5b5;
-  --link-color: #adadad ;
+  --link-color: #adadad;
 }
 
 * {
@@ -186,6 +186,38 @@ NAV
 
 .logo-navbar {
   max-width: 25px;
+}
+
+/*
+ ***************************
+SUMMARY
+ ***************************
+ */
+.background-summary {
+  background-image: url("../images/backgrounds/background-summary.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.background-summary {
+  width: 100%;
+}
+
+/*
+*******************************
+BIOGRAPHY
+*******************************
+*/
+.biography-img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px 18px 18px 18px;
+}
+
+.biography-txt {
+  color: var(--txt-color) !important;
 }
 
 /*

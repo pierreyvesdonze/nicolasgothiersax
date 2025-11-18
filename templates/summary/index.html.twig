@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Sommaire
+{% endblock %}
+
+{% block body %}
+
+	<div class="background-summary">
+
+		<h1>Sommaire</h1>
+
+		<div class="uk-animation">
+			<div class="uk-card uk-card-default uk-card-body uk-animation-slide-left uk-flex uk-flex-center" style="animation-delay: 400ms;">
+				<a href="{{ path('app_biography') }}" class="uk-link-muted">Biographie</a>
+			</div>
+		</div>
+
+		<div class="uk-animation">
+			<div class="uk-card uk-card-default uk-card-body uk-animation-slide-left" style="animation-delay: 200ms;">
+				<p class="uk-text-center">Distinctions</p>
+			</div>
+		</div>
+
+		<div class="uk-animation">
+			<div class="uk-card uk-card-default uk-card-body uk-animation-slide-left uk-flex uk-flex-center" style="animation-delay: 400ms;">
+				<a href="{{ path('app_project_index') }}" class="uk-link-muted">Projets</a>
+			</div>
+		</div>
+
+		<div class="uk-animation">
+			<div class="uk-card uk-card-default uk-card-body uk-animation-slide-left" style="animation-delay: 600ms;">
+				<p class="uk-text-center">Concerts</p>
+			</div>
+		</div>
+
+		<div class="uk-animation">
+			<div class="uk-card uk-card-default uk-card-body uk-animation-slide-left" style="animation-delay: 800ms;">
+				<p class="uk-text-center">Galerie</p>
+			</div>
+		</div>
+
+		<div class="uk-animation">
+			<div class="uk-card uk-card-default uk-card-body uk-animation-slide-left" style="animation-delay: 1000ms;">
+				<p class="uk-text-center">Contact</p>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
