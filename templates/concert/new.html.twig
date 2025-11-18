@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une date de concert
+{% endblock %}
+
+{% block body %}
+	<h1>Ajouter une date de concert</h1>
+
+	{{ include('concert/_form.html.twig') }}
+
+	<div class="action-buttons">
+		<a href="{{ path('app_concert_index') }}" class="uk-button uk-button-default uk-border-pill uk-box-shadow-hover-small action-btn">
+			Retour à la liste
+		</a>
+	</div>
+{% endblock %}

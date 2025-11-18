@@ -8,6 +8,7 @@
     --title-color: #898989;
     --txt-color: #b5b5b5;
     --link-color: #adadad;
+    --blue-link-color: #1E90FF;
 }
 
 * {
@@ -108,59 +109,6 @@ ICONES
 
 /*
  ***************************
-ALERT / FLASH MESSAGE / MODAL
- ***************************
- */
-.flash-container {
-    height: 50px;
-    position: sticky;
-    width: 100%;
-}
-
-.alert,
-.alert-success {
-    width: 100%;
-    color: var(--flash-alert);
-    border: none;
-    text-align: center;
-    z-index: 1200;
-    font-size: 1.2em;
-    font-weight: 400;
-}
-
-.alert-success {
-    color: var(--flash-alert);
-}
-
-.alert-error {
-    color: var(--flash-alert-error);
-}
-
-.modal-delete-confirm {
-    display: none; /* Modale cachée par défaut */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.modal-delete-confirm button {
-    margin-top: 10px;
-}
-
-/*
- ***************************
 NAV
  ***************************
  */
@@ -184,7 +132,6 @@ SUMMARY
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 100vh;
 }
 
 /*
@@ -222,18 +169,6 @@ BIOGRAPHY
     color: var(--txt-color) !important;
 }
 
-/*
-*******************************
-DEGREE
-*******************************
-*/
-/* .degree-container {
-    background-image: url("../images/saxophone.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    padding: 100px 0;
-}
  */
 /*
 *******************************
@@ -257,6 +192,18 @@ PROJECT
     object-fit: cover; /* ne dépasse jamais */
     display: block;
 }
+
+/*
+*******************************
+CONTACT
+*******************************
+*/
+.social-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
 
 /*
  ***************************

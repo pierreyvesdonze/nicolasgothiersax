@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact
+{% endblock %}
+
+{% block body %}
+	<div class="uk-flex uk-flex-center uk-margin-large-top">
+
+		<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-text-center uk-animation-fade" style="animation-delay: 200ms;">
+
+			<h3 class="uk-card-title">Contact</h3>
+			<hr class="uk-divider-icon">
+
+			<p>06 61 35 65 00</p>
+			<p>nico@pro.com</p>
+
+			<hr class="uk-divider-icon">
+
+			<div class="uk-flex uk-flex-around uk-flex-middle uk-gap-medium">
+
+				<a href="https://www.facebook.com/nicolas.gothier1" target="_blank" rel="noopener noreferrer">
+					<img src="{{ asset('assets/images/logo/facebook.png') }}" alt="" style="width:24px; height:24px;">
+				</a>
+
+				<a href="https://www.instagram.com/nicosaxo54" target="_blank" rel="noopener noreferrer">
+					<img src="{{ asset('assets/images/logo/instagram.png') }}" alt="" style="width:24px; height:24px;">
+				</a>
+
+				<a href="https://www.tiktok.com/fr/" target="_blank" rel="noopener noreferrer">
+					<img src="{{ asset('assets/images/logo/tiktok.png') }}" alt="" style="width:24px; height:24px;">
+				</a>
+
+				<a href="https://www.mariages.net/musique-mariage/nicolas-gothier--e156470" target="_blank" rel="noopener noreferrer">
+					<img src="{{ asset('assets/images/logo/mariage.png') }}" alt="" style="width:24px; height:24px;">
+				</a>
+
+				<a href="https://www.linkedin.com/in/nicolas-gothier-154298109/?originalSubdomain=fr" target="_blank" rel="noopener noreferrer">
+					<img src="{{ asset('assets/images/logo/linkedin.png') }}" alt="" style="width:24px; height:24px;">
+				</a>
+
+				<a href="https://linkaband.com/nicolas-gothier" target="_blank" rel="noopener noreferrer">
+					<img src="{{ asset('assets/images/logo/linkaband.png') }}" alt="" style="width:24px; height:24px;">
+				</a>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="action-buttons uk-animation-fade" style="animation-delay: 600ms;">
+		<a href="{{ path('app_summary') }}" class="uk-button uk-button-default uk-border-pill uk-box-shadow-hover-small action-btn">
+			Retour au sommaire
+		</a>
+	</div>
+
+{% endblock %}

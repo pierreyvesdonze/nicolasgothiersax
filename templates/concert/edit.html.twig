@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le concert
+{% endblock %}
+
+{% block body %}
+	<h1>Modifier le concert</h1>
+
+	{{ include('concert/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+	<div class="action-buttons">
+    <a href="{{ path('app_concert_index') }}" 
+       class="uk-button uk-button-default uk-border-pill uk-box-shadow-hover-small action-btn">
+        Retour à la liste
+    </a>
+
+    {{ include('concert/_delete_form.html.twig') }}
+</div>
+
+{% endblock %}

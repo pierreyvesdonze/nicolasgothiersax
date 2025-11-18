@@ -1,10 +1,9 @@
 <nav class="uk-navbar-container" uk-sticky="top: 0; animation: uk-animation-slide-top;">
     <div class="uk-container">
         <div uk-navbar="mode: hover">
+
+            <!-- Zone gauche -->
             <div class="uk-navbar-left">
-
-                <img src="{{ asset('assets/images/logo/nico-logo-symb.png') }}" alt="logo sax" class="logo-navbar">
-
                 <a class="uk-navbar-toggle" href="#">
                     <span uk-navbar-toggle-icon></span>
                     <span class="uk-margin-xsmall-left">Menu</span>
@@ -12,26 +11,39 @@
 
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-link"><a href="{{ path('app_home') }}">Home</a>
-                        </li>
-                        <li class="uk-link"><a href="{{ path('app_summary') }}">Sommaire</a>
-                        </li>
-                        <li class="uk-link"><a href="{{ path('app_biography') }}">Biographie</a>
-                        </li>
-                        <li class="uk-link"><a href="{{ path('app_degree_index') }}">Distinctions</a>
-                        </li>
-                        <li class="uk-link"><a href="{{ path('app_project_index') }}">Projets</a>
-                        </li>
+                        <li><a href="{{ path('app_home') }}">Home</a></li>
+                        <li><a href="{{ path('app_summary') }}">Sommaire</a></li>
+                        <li><a href="{{ path('app_biography') }}">Biographie</a></li>
+                        <li><a href="{{ path('app_degree_index') }}">Distinctions</a></li>
+                        <li><a href="{{ path('app_project_index') }}">Projets</a></li>
+                        <li><a href="{{ path('app_concert_index') }}">Concerts</a></li>
+                        <li><a href="{{ path('app_contact') }}">Contact</a></li>
 
                         {% if not app.user %}
-                            <li class="uk-link"><a href="{{ path('app_login') }}">Connexion</a></li>
-                            <li class="uk-link"><a href="{{ path('app_register') }}">Inscription</a></li>
+                            <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                            <li><a href="{{ path('app_register') }}">Inscription</a></li>
                         {% else %}
-                            <li class="uk-link"><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                        <hr class="uk-divider">
+                            <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
                         {% endif %}
                     </ul>
                 </div>
             </div>
+
+            <!-- Zone CENTRE -->
+            <div class="uk-navbar-center">
+                <a href="{{ path('app_home') }}">
+                    <img src="{{ asset('assets/images/logo/nico-logo-symb.png') }}"
+                         alt="logo sax"
+                         class="logo-navbar">
+                </a>
+            </div>
+
+            <!-- Zone droite -->
+            <div class="uk-navbar-right">
+
+            </div>
+
         </div>
     </div>
 </nav>
