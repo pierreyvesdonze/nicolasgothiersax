@@ -19,24 +19,21 @@ class Project
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $mainImage = null;
-
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    /**
-     * @var Collection<int, Image>
-     */
-    #[ORM\OneToMany(targetEntity: Image::class, mappedBy: 'project', orphanRemoval: true)]
-    private Collection $images;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
 
-    #[ORM\Column]
-    private ?int $date = null;
+    /**
+     * @var Collection<int, Link>
+     */
+    #[ORM\OneToMany(targetEntity: Link::class, mappedBy: 'project', orphanRemoval: true, cascade: ['persist', 'remove'],)]
+    private Collection $links;
 
     public function __construct()
     {
-        $this->images = new ArrayCollection();
+        $this->links = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -56,68 +53,56 @@ class Project
         return $this;
     }
 
-    public function getMainImage(): ?string
-    {
-        return $this->mainImage;
-    }
-
-    public function setMainImage(string $mainImage): static
-    {
-        $this->mainImage = $mainImage;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): static
+    public function setDescription(?string $description): static
     {
         $this->description = $description;
 
         return $this;
     }
 
-    /**
-     * @return Collection<int, Image>
-     */
-    public function getImages(): Collection
+    public function getImage(): ?string
     {
-        return $this->images;
+        return $this->image;
     }
 
-    public function addImage(Image $image): static
+    public function setImage(?string $image): static
     {
-        if (!$this->images->contains($image)) {
-            $this->images->add($image);
-            $image->setProject($this);
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Link>
+     */
+    public function getLinks(): Collection
+    {
+        return $this->links;
+    }
+
+    public function addLink(Link $link): static
+    {
+        if (!$this->links->contains($link)) {
+            $this->links->add($link);
+            $link->setProject($this);
         }
 
         return $this;
     }
 
-    public function removeImage(Image $image): static
+    public function removeLink(Link $link): static
     {
-        if ($this->images->removeElement($image)) {
+        if ($this->links->removeElement($link)) {
             // set the owning side to null (unless already changed)
-            if ($image->getProject() === $this) {
-                $image->setProject(null);
+            if ($link->getProject() === $this) {
+                $link->setProject(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getDate(): ?int
-    {
-        return $this->date;
-    }
-
-    public function setDate(int $date): static
-    {
-        $this->date = $date;
 
         return $this;
     }

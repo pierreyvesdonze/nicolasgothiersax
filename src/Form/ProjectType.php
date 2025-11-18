@@ -3,18 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Project;
-use App\Entity\Image;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\All;
-use Symfony\Component\Validator\Constraints\File;
-use Symfony\Component\Validator\Constraints\Length;
 
 class ProjectType extends AbstractType
 {
@@ -22,70 +17,30 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => false,
-                'attr'  => [
-                    'class'       => 'uk-input',
-                    'placeholder' => 'Titre du projet'
-                ],
-                'constraints' => [
-                    new Length([
-                        'max' => 255,
-                        'maxMessage' => 'Le nom du projet ne peut pas dépasser 255 caractères.',
-                    ]),
+                'required' => true,
+                'attr' => [
+                    'placeholder' => 'Titre',
                 ],
             ])
             ->add('description', TextareaType::class, [
-                'label' => false,
+                'required' => true,
                 'attr' => [
-                    'class'       => 'uk-input',
-                    'placeholder' => 'Description du projet',
-                ]
-            ])
-            ->add('mainImage', FileType::class, [
-                'label' => 'Image principale',
-                'mapped' => false, // Si tu gères l'upload dans le contrôleur
-                'required' => false,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '5M',
-                        'mimeTypes' => [
-                            'image/jpeg',
-                            'image/png',
-                            'image/gif',
-                            'image/webp',
-                        ],
-                        'mimeTypesMessage' => 'Veuillez télécharger une image valide (JPEG, PNG, GIF, WEBP).',
-                    ])
+                    'placeholder' => 'Description',
+                    'rows' => 5,
                 ],
             ])
-            ->add('images', FileType::class, [
-                'label' => 'Autres images',
+            ->add('image', FileType::class, [
+                'required' => true,
                 'mapped' => false,
-                'required' => false,
-                'multiple' => true,
-                'constraints' => [
-                    new All([
-                        'constraints' => [
-                            new File([
-                                'maxSize' => '5M',
-                                'mimeTypes' => [
-                                    'image/jpeg',
-                                    'image/png',
-                                    'image/gif',
-                                    'image/webp',
-                                ],
-                                'mimeTypesMessage' => 'Veuillez télécharger une image valide (JPEG, PNG, GIF, WEBP).',
-                            ])
-                        ]
-                    ])
+                'attr' => [
+                    'placeholder' => 'Choisir une image',
                 ],
             ])
-              ->add('date', IntegerType::class, [
-                'label' => false,
-                'attr' => [
-                    'class'       => 'uk-input',
-                    'placeholder' => "L'année du projet",
-                ]
+            ->add('links', CollectionType::class, [
+                'entry_type' => LinkType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false, // important pour que Doctrine persiste les liens
             ])
         ;
     }

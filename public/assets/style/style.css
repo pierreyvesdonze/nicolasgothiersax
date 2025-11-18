@@ -11,6 +11,11 @@ MEDIA QUERIES
   --flash-alert-error: rgb(150, 47, 47);
   --title-color: #898989;
   --txt-color: #b5b5b5;
+  --link-color: #adadad ;
+}
+
+* {
+  font-family: "Montserrat", sans-serif !important;
 }
 
 /*
@@ -34,6 +39,29 @@ CONTAINERS
   .div-flex {
     flex-direction: column;
   }
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px; /* espace entre les deux boutons */
+  padding: 20px;
+}
+
+.action-buttons .action-btn,
+.action-buttons form button {
+  width: auto; /* Taille normale */
+  min-width: 160px; /* Optionnel : pour une largeur cohérente */
+  text-align: center; /* Pour éviter les boutons désalignés */
+}
+
+.action-buttons form {
+  margin: 0; /* UIKit ajoute parfois un margin */
+}
+
+.action-buttons form button {
+  display: inline-block;
 }
 
 /*
@@ -68,6 +96,27 @@ ICONES
 
 h1 {
   color: var(--title-color) !important;
+}
+
+.nico-logo-container {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.nico-logo-container img {
+  max-width: 50%;
+}
+@media (min-width: 300px) and (max-width: 576px) {
+  .nico-logo-container img {
+    max-width: 90%;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .nico-logo-container img {
+    max-width: 90%;
+  }
 }
 
 /*
@@ -135,120 +184,16 @@ NAV
   margin-right: 0.5em !important;
 }
 
+.logo-navbar {
+  max-width: 25px;
+}
+
 /*
  ***************************
-CARDS
+FOOTER
  ***************************
  */
-.project-card {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.project-card .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.45);
-  transition: background 0.5s ease;
-  z-index: 1;
-}
-
-/* Contenu texte toujours au-dessus */
-.project-card .uk-card-body {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-/* Texte en blanc */
-.project-card .uk-card-title,
-.project-card p {
-  color: white !important;
-}
-
-/* Créer un pseudo-élément pour l'image de fond */
-.project-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: inherit;
-  background-size: cover;
-  background-position: center;
-  transition: transform 1s ease, filter 1s ease;
-  z-index: 0;
-}
-
-/* Effet hover */
-.project-card:hover::before {
-  transform: scale(1.1);
-  filter: brightness(0.9);
-}
-
-.project-card:hover .overlay {
-  background: rgba(0, 0, 0, 0.55);
-}
-
-.project-card:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-  transition: box-shadow 0.6s ease;
-}
-
-.work-card {
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
-}
-.work-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-}
-.work-card .work-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.45);
-  transition: background 0.6s ease;
-}
-.work-card:hover .work-overlay {
-  background: rgba(0, 0, 0, 0.25);
-}
-.work-card .work-content {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.work-card .work-content h3 {
-  color: white;
-  font-size: 2rem;
-}
-
-@media (min-width: 300px) and (max-width: 576px) {
-  .mobile-margin-btn {
-    margin-top: 10px !important;
-  }
-}
-@media (min-width: 576px) and (max-width: 768px) {
-  .mobile-margin-btn {
-    margin-top: 10px !important;
-  }
+.link-footer {
+  color: var(--link-color) !important;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
