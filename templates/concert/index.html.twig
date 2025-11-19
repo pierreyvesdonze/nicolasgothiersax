@@ -4,10 +4,11 @@
 {% endblock %}
 
 {% block body %}
-	<div class="uk-container uk-margin-large-top uk-animation-fade" style="animation-delay: 200ms;">
+	<div class="uk-animation-fade background-concert" style="animation-delay: 200ms;">
 
 		<h1 class="uk-text-center">Concerts</h1>
 		<hr class="uk-divider-icon">
+		<br>
 
 		{% if is_granted('ROLE_ADMIN') %}
 			<div class="uk-flex uk-flex-center uk-margin-medium-bottom">
@@ -21,7 +22,6 @@
 			<ul class="uk-list uk-list-divider uk-width-1-2@m uk-text-center">
 				{% for concert in concerts %}
 					<li>
-					
                         {% if concert.band %}
 						<strong>{{ concert.band }}</strong>
                         {% endif %}
@@ -40,9 +40,9 @@
 			</ul>
 		</div>
 		<div class="action-buttons">
-			<a href="{{ path('app_summary') }}" class="uk-button uk-button-default uk-border-pill uk-box-shadow-hover-small action-btn">
-				Retour au sommaire
-			</a>
+			<a href="{{ path('app_summary') }}" style="background:white; color:black; padding:8px 16px; border-radius:20px; display:inline-block;">
+    Retour au sommaire
+</a>
 		</div>
 	</div>
 {% endblock %}

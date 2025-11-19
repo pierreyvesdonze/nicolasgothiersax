@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SLEEPY MONSTER
+{% endblock %}
+
+{% block body %}
+	<div class="my-video-wrapper">
+		<iframe src="https://www.youtube.com/embed/q0O93S_quCo?si=sfvdFClcIqpnPw7C&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+	</div>
+
+	<div class="background-sleepy" uk-scrollspy="cls: uk-animation-fade; repeat: true; delay: 200">
+		<div class="sleepy-wrapper">
+			<a href="https://www.youtube.com/@sleepymonster3000" class="sleepy-monster-link" target="_blank" rel="noopener noreferrer">
+				SLEEPY MONSTER
+			</a>
+		</div>
+	</div>
+
+	<div class="background-nico-studio" uk-scrollspy="cls: uk-animation-fade; repeat: true; delay: 200">
+		<a href="https://soundcloud.com/sleepy-monster">
+			<img src="{{ asset('assets/images/logo/soundcloud.png') }}" alt="soundcloud" class="soundcloud-rotate" target="_blank" rel="noopener noreferrer">
+		</a>
+	</div>
+
+{% endblock %}

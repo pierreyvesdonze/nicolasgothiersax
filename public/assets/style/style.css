@@ -12,7 +12,7 @@ MEDIA QUERIES
   --title-color: #898989;
   --txt-color: #b5b5b5;
   --link-color: #adadad;
-  --blue-link-color: #1E90FF;
+  --blue-link-color: #1e90ff;
 }
 
 * {
@@ -133,6 +133,15 @@ NAV
   max-width: 25px;
 }
 
+#logo-sm-nav {
+  height: 65px;
+  width: auto;
+}
+
+#logo-sm-nav:hover {
+  filter: invert(1) !important;
+}
+
 /*
  ***************************
 SUMMARY
@@ -143,6 +152,13 @@ SUMMARY
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+}
+.background-summary h1 {
+  text-shadow: rgba(0, 0, 0, 0.253) 1px 1px;
+}
+
+.summary-link:hover {
+  color: red !important;
 }
 
 /*
@@ -178,19 +194,6 @@ BIOGRAPHY
 
 /*
 *******************************
-DEGREE
-*******************************
-*/
-/* .degree-container {
-    background-image: url("../images/saxophone.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    padding: 100px 0;
-}
- */
-/*
-*******************************
 PROJECT
 *******************************
 */
@@ -217,6 +220,39 @@ PROJECT
 
 /*
 *******************************
+CONCERT
+*******************************
+*/
+.background-concert {
+  background-image: url("../images/backgrounds/background-stage.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 80vh;
+  overflow-y: scroll;
+}
+@media (min-width: 300px) and (max-width: 576px) {
+  .background-concert {
+    background-image: url("../images/backgrounds/background-stage-small.png");
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .background-concert {
+    background-image: url("../images/backgrounds/background-stage-small.png");
+  }
+}
+
+.concert-container {
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  padding-right: 10px;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/*
+*******************************
 CONTACT
 *******************************
 */
@@ -234,4 +270,112 @@ FOOTER
 .link-footer {
   color: var(--link-color) !important;
   font-weight: bold;
+}
+
+/*
+ ***************************
+SLEEPY MONSTER
+ ***************************
+ */
+.background-sleepy {
+  background-image: url("../images/backgrounds/background-nicopy.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+@media (min-width: 300px) and (max-width: 576px) {
+  .background-sleepy {
+    background-image: url("../images/backgrounds/background-nicopy-small.png");
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .background-sleepy {
+    background-image: url("../images/backgrounds/background-nicopy-small.png");
+  }
+}
+
+.my-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.my-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sleepy-wrapper {
+  background: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-top: 25%;
+}
+@media (min-width: 300px) and (max-width: 576px) {
+  .sleepy-wrapper {
+    margin-top: 65%;
+    font-size: 1em;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .sleepy-wrapper {
+    margin-top: 65%;
+    font-size: 1em;
+  }
+}
+
+.sleepy-monster-link {
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.4em;
+  color: black;
+  text-align: center;
+}
+
+.background-nico-studio {
+  background-image: url("../images/backgrounds/background-nico-studio.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+@media (min-width: 300px) and (max-width: 576px) {
+  .background-nico-studio {
+    background-image: url("../images/backgrounds/background-nico-studio-small.png");
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .background-nico-studio {
+    background-image: url("../images/backgrounds/background-nico-studio-small.png");
+  }
+}
+
+.soundcloud-rotate {
+  display: inline-block; /* nécessaire pour l’animation */
+  animation: rotate360 4s linear infinite; /* 4s pour un tour complet, ajustable */
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=style.css.map */
