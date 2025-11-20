@@ -55,13 +55,13 @@ CONTAINERS
 
 .action-buttons .action-btn,
 .action-buttons form button {
-    width: auto; /* Taille normale */
-    min-width: 160px; /* Optionnel : pour une largeur cohérente */
-    text-align: center; /* Pour éviter les boutons désalignés */
+    width: auto;
+    min-width: 160px;
+    text-align: center; 
 }
 
 .action-buttons form {
-    margin: 0; /* UIKit ajoute parfois un margin */
+    margin: 0;
 }
 
 .action-buttons form button {
