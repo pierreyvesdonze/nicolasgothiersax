@@ -15,7 +15,7 @@ class ConcertType extends AbstractType
     {
         $builder
             ->add('band', TextType::class, [
-                'required' => true,
+                'required' => false,
                 'attr' => [
                     'placeholder' => 'Avec quel groupe ? (optionnel)',
                 ],
