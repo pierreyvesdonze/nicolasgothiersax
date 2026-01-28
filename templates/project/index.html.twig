@@ -40,9 +40,7 @@
 											{% for link in project.links %}
 												<li class="uk-flex uk-flex-middle">
 													<img src="{{ asset('assets/images/logo/' ~ link.type ~ '.png') }}" alt="{{ link.type }}" width="24" height="24" style="margin-right: 8px;" onerror="this.src='{{ asset('icons/default.png') }}'">
-													<a href="{{ link.path }}" target="_blank" 
-                                                    class="uk-link-muted"
-                                                    rel="noopener noreferrer">
+													<a href="{{ link.path }}" target="_blank" class="uk-link-muted" rel="noopener noreferrer">
 														{{ link.type|capitalize }}
 													</a>
 												</li>
@@ -50,10 +48,12 @@
 										</ul>
 									{% endif %}
 
+
 									{% if is_granted('ROLE_ADMIN') %}
 										<hr class="uk-divider-icon">
-										<a href="{{ path('app_project_edit', {'id': project.id}) }}" class="uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">Modifier</a>
-										<a href="{{ path('app_project_new') }}" class="uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">Ajouter</a>
+										<div class="uk-flex uk-flex-center uk-margin-medium-top">
+											<a href="{{ path('app_project_edit', {'id': project.id}) }}" class="uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">Modifier</a>
+										</div>
 									{% endif %}
 								</div>
 							</div>
@@ -63,6 +63,13 @@
 				</div>
 			</div>
 		</div>
+		{% if is_granted('ROLE_ADMIN') %}
+			<div class="uk-flex uk-flex-center uk-margin-medium-top">
+				<a href="{{ path('app_project_new') }}" class="uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">
+					Ajouter
+				</a>
+			</div>
+		{% endif %}
 	</div>
 	<div class="action-buttons">
 		<a href="{{ path('app_summary') }}" class="uk-button uk-button-default uk-border-pill uk-box-shadow-hover-small action-btn">
