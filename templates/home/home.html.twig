@@ -6,7 +6,8 @@
 	<div class="nico-logo-container" uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 150;">
 		<img src="{{ asset('assets/images/logo/nico-logo.png') }}" alt="logo nico sax">
 		<h4 class="uk-text-center uk-margin-large">Saxophoniste</h4>
-		<a href="{{ path('app_summary') }}" class="uk-button uk-button-default uk-border-pill">Entrer</a>
+		<div class="action-buttons">
+			<a href="{{ path('app_summary') }}" class="uk-button uk-button-default uk-border-pill action-btn">Entrer</a>
+		</div>
 	</div>
 {% endblock %}
-
