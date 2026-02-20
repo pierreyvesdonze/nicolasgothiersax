@@ -19,6 +19,18 @@ MEDIA QUERIES
   font-family: "Montserrat", sans-serif !important;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url("../images/backgrounds/bg-body-2.png");
+}
+
 h1 {
   color: var(--title-color) !important;
   text-align: center;
@@ -267,6 +279,10 @@ CONTACT
 FOOTER
  ***************************
  */
+.footer {
+  margin-top: auto !important;
+}
+
 .link-footer {
   color: var(--link-color) !important;
   font-weight: bold;
