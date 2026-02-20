@@ -14,15 +14,16 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet"> {% block stylesheets %}{% endblock %}
-		<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet"> 
+		<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
 
-		</head>
+	</head>
 
-		<body>
-			{# Navbar #}
-			{% include "nav/nav.html.twig" %}
+	<body>
+		{# Navbar #}
+		{% include "nav/nav.html.twig" %}
 
-			{% block body %}{% endblock %}
+		<div class="page-wrapper"> {% block body %}{% endblock %}
+			</div>
 
 			{# Footer #}
 			{% include "footer/footer.html.twig" %}
