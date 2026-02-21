@@ -261,7 +261,6 @@ CONCERT
 }
 
 .concert-container {
-  height: calc(100vh - 200px);
   overflow-y: auto;
   padding-right: 10px;
   backdrop-filter: blur(8px) !important;
