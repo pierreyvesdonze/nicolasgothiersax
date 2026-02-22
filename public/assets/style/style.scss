@@ -179,25 +179,7 @@ SUMMARY
 BIOGRAPHY
 *******************************
 */
-.body-vignette {
-    position: relative;
-}
 
-.body-vignette::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none; /* ne bloque pas les clics */
-    background: radial-gradient(
-        circle,
-        rgba(0, 0, 0, 0) 80%,
-        rgba(0, 0, 0, 0.15) 100%
-    );
-    z-index: 1;
-}
 
 .biography-img {
     width: 100%;
@@ -205,8 +187,13 @@ BIOGRAPHY
     border-radius: 18px 18px 18px 18px;
 }
 
+.bio-p {
+    text-align: justify;
+}
+
 .biography-txt {
     color: var(--txt-color) !important;
+    hyphens: auto;
 }
 
 /*
