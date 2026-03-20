@@ -21,11 +21,11 @@ class ConcertType extends AbstractType
                 ],
             ])
             ->add('date', DateType::class, [
-                'widget' => 'choice',
-                'format' => 'dd-MM-yyyy', // obligatoire pour Symfony
-                'years' => range(date('Y'), 1990),
+                'widget'   => 'choice',
+                'format'   => 'dd-MM-yyyy',
+                'years'    => range(1990, 2100),
                 'required' => true,
-                'attr' => ['class' => 'uk-select'],
+                'attr'     => ['class' => 'uk-select'],
             ])
             ->add('place', TextType::class, [
                 'required' => true,
