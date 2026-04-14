@@ -71,7 +71,7 @@ final class ConcertController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_concert_delete', methods: ['POST'])]
+    #[Route('/delete/{id}', name: 'app_concert_delete', methods: ['POST'])]
     #[IsGranted('ROLE_ADMIN')]
     public function delete(Request $request, Concert $concert, EntityManagerInterface $entityManager): Response
     {

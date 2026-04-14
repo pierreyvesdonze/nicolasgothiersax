@@ -30,7 +30,9 @@
 
 						{% if is_granted('ROLE_ADMIN') %}
 							<br>
-							<a href="{{ path('app_concert_edit', {'id': concert.id}) }}" class="uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">Modifier</a>
+							<a href = "{{ path('app_concert_edit', {'id': concert.id}) }}" class = "uk-button-primary uk-button-small uk-border-pill uk-box-shadow-hover-small">Modifier</a>
+
+							{% include "concert/_delete_form.html.twig" %}
 						{% endif %}
 					</li>
 					
