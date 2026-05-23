@@ -10,10 +10,10 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
 
-        "doctrine/dbal": "^3.10",
-        "doctrine/doctrine-bundle": "^2.18",
+        "doctrine/dbal": "^3.10.5",
+        "doctrine/doctrine-bundle": "^2.18.2",
         "doctrine/doctrine-migrations-bundle": "^3.7",
-        "doctrine/orm": "^3.6",
+        "doctrine/orm": "^3.6.6",
 
         "symfony/asset": "7.4.*",
         "symfony/console": "7.4.*",
@@ -31,7 +31,7 @@
     },
 
     "require-dev": {
-        "symfony/maker-bundle": "^1.65",
+        "symfony/maker-bundle": "^1.67",
         "symfony/web-profiler-bundle": "7.4.*"
     },
 
